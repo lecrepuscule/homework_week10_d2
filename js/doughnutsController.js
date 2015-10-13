@@ -7,7 +7,6 @@ function DoughnutsController($http){
 
   vm.all = [];
   vm.freshDoughnut = {};
-  vm.fiddling = false;
 
   vm.getDoughnuts = function(){
     $http
@@ -27,6 +26,23 @@ function DoughnutsController($http){
       vm.freshDoughnut = {};
     })
   }
+
+  vm.fiddleDoughnut = function(doughnut){
+    console.log("clicked on " + doughnut.id);
+    var data = {
+      flavor: doughnut.flavor,
+      style: doughnut.style
+    }
+
+    $http
+    .put("http://api.doughnuts.ga/doughnuts/" + doughnut.id, data)
+    .then(function(response){
+      console.log(response);
+      if (response.status === 200){
+        delete doughnut.fiddling;
+      };
+    });
+  };
 
   vm.eatDoughnut = function(id){
     $http

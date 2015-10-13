@@ -14,11 +14,11 @@
 
   <ul>
     <li ng-repeat="doughnut in dc.all">
-      <strong ng-hide="vm.fiddling" ng-click="vm.fiddling=true">{{ doughnut.style }}</strong>
-      <strong ng-hide="vm.fiddling" ng-click="vm.fiddling=true">{{ doughnut.flavor }}</strong>
-      <button ng-hide="vm.fiddling" ng-click="dc.eatDoughnut(doughnut.id)">Eat</button>
+      <strong ng-hide="doughnut.fiddling" ng-click="doughnut.fiddling=true">{{ doughnut.style }}</strong>
+      <strong ng-hide="doughnut.fiddling" ng-click="doughnut.fiddling=true">{{ doughnut.flavor }}</strong>
+      <button ng-hide="doughnut.fiddling" ng-click="dc.eatDoughnut(doughnut.id)">Eat</button>
 
-      <form ng-if="vm.fiddling" ng-submit="fiddleDoughnut(doughnut)">
+      <form ng-if="doughnut.fiddling" ng-submit="dc.fiddleDoughnut(doughnut)">
         <input type="text" ng-model="doughnut.style">
         <input type="text" ng-model="doughnut.flavor">
         <input type="submit" value="Fiddle!">
