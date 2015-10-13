@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="doughnutApp">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/doughnutsController.js"></script>
+  <title>Doughnuts!</title>
+</head>
+<body ng-controller="DoughnutsController as dc">
+
+  <h1>You are gonna get FAT!</h1>
+
+  <ul>
+    <li ng-repeat="doughnut in dc.all">
+      <strong>{{ doughnut.style }}</strong>
+      <strong>{{ doughnut.flavor }}</strong>
+      <button ng-click="dc.eatDoughnut(doughnut.id)">Eat</button>
+    </li>
+  </ul>
+  
+</body>
+</html>
