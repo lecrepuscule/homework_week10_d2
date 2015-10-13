@@ -20,5 +20,12 @@
     </li>
   </ul>
   
+  <form ng-submit="dc.bakeDoughnut()">
+    <label for="style">Style</label>
+    <input type="text" ng-model="dc.freshDoughnut.style" placeholder="style"><label for="flavor">Flavour</label>
+    <input type="text" ng-model="dc.freshDoughnut.flavor" placeholder="flavour">
+    <input type="submit" value="Bake!">
+  </form>
+
 </body>
 </html>

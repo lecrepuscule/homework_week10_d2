@@ -6,6 +6,7 @@ function DoughnutsController($http){
   var vm = this;
 
   vm.all = [];
+  vm.freshDoughnut = {};
 
   vm.getDoughnuts = function(){
     $http
@@ -13,6 +14,16 @@ function DoughnutsController($http){
     .then(function(response){
       console.log(response);
       vm.all = response.data;
+    })
+  }
+
+  vm.bakeDoughnut = function(){
+    $http
+    .post("http://api.doughnuts.ga/doughnuts", vm.freshDoughnut)
+    .then(function(response){
+      console.log(response);
+      vm.all.push(response.data);
+      vm.freshDoughnut = {};
     })
   }
 
