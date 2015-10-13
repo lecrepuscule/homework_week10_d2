@@ -7,6 +7,7 @@ function DoughnutsController($http){
 
   vm.all = [];
   vm.freshDoughnut = {};
+  vm.fiddling = false;
 
   vm.getDoughnuts = function(){
     $http
