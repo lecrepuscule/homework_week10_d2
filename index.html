@@ -52,7 +52,10 @@
           </td>
           <td ng-if="doughnut.fiddling">
             <button ng-click="dc.fiddleDoughnut(doughnut)">Fiddle</button>
-          </td> 
+          </td>
+          <td ng-if="doughnut.fiddling">
+            <button ng-click="dc.cancelFiddling(doughnut.id, $index)">Cancel</button>
+          </td>  
         </tr>
       </table>
     </div>

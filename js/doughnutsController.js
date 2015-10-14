@@ -44,6 +44,17 @@ function DoughnutsController($http){
     });
   };
 
+  vm.cancelFiddling = function(id, index){
+    console.log("id is " + id);
+    console.log("index is " + index);
+    $http
+    .get("http://api.doughnuts.ga/doughnuts/" + id)
+    .then(function(response){
+      console.log(response);
+      vm.all.splice(index, 1, response.data)
+    })
+  }
+
   vm.eatDoughnut = function(id){
     $http
     .delete("http://api.doughnuts.ga/doughnuts/" + id)
